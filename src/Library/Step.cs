@@ -23,5 +23,15 @@ namespace Full_GRASP_And_SOLID.Library
         public int Time { get; set; }
 
         public Equipment Equipment { get; set; }
+
+        public double calculatestep(){
+
+            double totalstep = 0;
+
+            totalstep = (this.Input.UnitCost * this.Quantity) + (this.Equipment.HourlyCost * this.Time);
+
+            return totalstep;
+        }
+
     }
 }

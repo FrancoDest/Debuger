@@ -11,9 +11,11 @@ namespace Full_GRASP_And_SOLID.Library
 {
     public class Recipe
     {
-        private ArrayList steps = new ArrayList();
+        public ArrayList steps = new ArrayList();
 
         public Product FinalProduct { get; set; }
+
+        
 
         public void AddStep(Step step)
         {
@@ -25,14 +27,17 @@ namespace Full_GRASP_And_SOLID.Library
             this.steps.Remove(step);
         }
 
-        public void PrintRecipe()
-        {
-            Console.WriteLine($"Receta de {this.FinalProduct.Description}:");
+        public double getCost(){
+
+           double sumatoria= 0;
+
             foreach (Step step in this.steps)
             {
-                Console.WriteLine($"{step.Quantity} de '{step.Input.Description}' " +
-                    $"usando '{step.Equipment.Description}' durante {step.Time}");
+                sumatoria += step.calculatestep();
             }
+            return sumatoria;
         }
+
+        
     }
 }
